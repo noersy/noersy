@@ -25,8 +25,8 @@ const handleClick = () => {
 </template>
 
 <style lang="scss" scoped>
-@import '../assets/styles/colors';
-@import '../assets/styles/typography';
+@use '../assets/styles/colors' as *;
+@use '../assets/styles/typography' as *;
 
 .nav-button {
   @include subtitle1-style;

@@ -1,6 +1,6 @@
 // Import variables
-@import './colors';
-@import './typography';
+@use './colors' as *;
+@use './typography' as *;
 
 // Global resets and base styles
 * {

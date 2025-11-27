@@ -29,8 +29,8 @@ const props = defineProps({
 </template>
 
 <style lang="scss" scoped>
-@import '../assets/styles/colors';
-@import '../assets/styles/typography';
+@use '../assets/styles/colors' as *;
+@use '../assets/styles/typography' as *;
 
 .timeline-item {
   display: flex;
@@ -49,9 +49,9 @@ const props = defineProps({
     width: 24px;
     position: relative;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    padding-top: 6px;
+    flex-shrink: 0;
 
     .timeline-dot {
       width: 12px;
@@ -59,7 +59,8 @@ const props = defineProps({
       border-radius: 50%;
       background-color: $rn-blue;
       border: 2px solid $primary-bg;
-      position: relative;
+      position: absolute;
+      top: 8px;
       z-index: 1;
       box-shadow: 0 0 0 2px $rn-blue;
     }
@@ -73,6 +74,7 @@ const props = defineProps({
       font-weight: $font-bold;
       color: $text-primary;
       margin-bottom: 8px;
+      line-height: 1.2;
     }
 
     .subtitle {

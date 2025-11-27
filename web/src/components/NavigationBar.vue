@@ -91,7 +91,7 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@import '../assets/styles/colors';
+@use '../assets/styles/colors' as *;
 
 .navigation-bar {
   position: fixed;

@@ -41,8 +41,8 @@ const projects = [
 </template>
 
 <style lang="scss" scoped>
-@import '../assets/styles/colors';
-@import '../assets/styles/typography';
+@use '../assets/styles/colors' as *;
+@use '../assets/styles/typography' as *;
 
 .featured-works-page {
   width: 100%;
