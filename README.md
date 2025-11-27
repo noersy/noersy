@@ -6,29 +6,6 @@
 - 💻 This portfolio is built with **Vue 3 + Vite**
 - 👨‍💻 All of my projects are available at [noersy.github.io](https://noersy.github.io/)
 
-## Portfolio Website
-
-This repository contains my personal portfolio website built with Vue 3. The website features:
-- Responsive design with mobile and desktop navigation
-- Vertical scrolling sections
-- Project showcase
-- Timeline of my journey
-- Dark theme
-
-### Tech Stack
-- Vue 3 (Composition API)
-- Vite
-- SCSS/SASS
-- Vue Router 4
-
-### Development
-
-```bash
-cd web
-npm install
-npm run dev
-```
-
 ## Tools
 
 ![](https://img.shields.io/badge/OS-MacOs-informational?style=for-the-badge&logo=MacOs&logoColor=white&color=0078d6)
