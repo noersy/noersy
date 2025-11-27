@@ -1,0 +1,63 @@
+// Typography styles from Flutter theme
+
+// Font weights
+$font-light: 300;
+$font-regular: 400;
+$font-bold: 700;
+
+// Title style (36px bold)
+@mixin title-style {
+  font-size: 36px;
+  font-weight: $font-bold;
+  color: $text-primary;
+}
+
+// Caption style (20px regular)
+@mixin caption-style {
+  font-size: 20px;
+  font-weight: $font-regular;
+  color: $text-primary;
+}
+
+// Caption2 style (16px regular)
+@mixin caption2-style {
+  font-size: 16px;
+  font-weight: $font-regular;
+  color: $text-primary;
+}
+
+// Headline2 (large heading for name)
+@mixin headline2-style {
+  font-size: 48px;
+  font-weight: $font-bold;
+  color: $text-primary;
+}
+
+// Headline5 (subtitle with light weight)
+@mixin headline5-style {
+  font-size: 24px;
+  font-weight: $font-light;
+  color: $text-primary;
+}
+
+// Subtitle1 (navigation items - 20px)
+@mixin subtitle1-style {
+  font-size: 20px;
+  font-weight: $font-regular;
+  color: $text-primary;
+}
+
+// Body text
+@mixin body-text {
+  font-size: 16px;
+  font-weight: $font-regular;
+  color: $text-primary;
+  line-height: 1.6;
+}
+
+// Small text
+@mixin small-text {
+  font-size: 14px;
+  font-weight: $font-regular;
+  color: $text-secondary;
+}

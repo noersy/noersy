@@ -1,0 +1,92 @@
+// Import variables
+@import './colors';
+@import './typography';
+
+// Global resets and base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $primary-bg;
+  color: $text-primary;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+// Utility classes
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+// Animation utilities
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 600ms ease-in-out forwards;
+}
+
+.fade-in-delayed {
+  opacity: 0;
+  animation: fadeIn 600ms ease-in-out 600ms forwards;
+}
+
+// Transition utilities
+.transition-all {
+  transition: all 300ms ease;
+}
+
+.transition-fast {
+  transition: all 200ms ease;
+}
+
+.transition-slow {
+  transition: all 500ms ease;
+}
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
+
+// Responsive breakpoints
+$breakpoint-mobile: 930px;
+$breakpoint-timeline: 1269px;
