@@ -1,18 +1,10 @@
 
 <h1 align="center">Hi 👋, I'm Nur Syahfei</h1>
 <h3 align="center">A passionate flutter developer, I also interest to make mobile and web software.</h3>
-<p>I'm a Junior Software Developer. I can work with flutter, laravel, php, javascript. Now I'm Informatics Student at University of Muhammadiyah Malang</p>
 
 - 🌱 I’m currently learning **Flutter & Dart**
 
 - 👨‍💻 All of my projects are available at [noersy.github.io](https://noersy.github.io/) ``underbuild``
-
-<div align="center">
-  <br>
-  <a href="#">
-    <img src="http://github-readme-streak-stats.herokuapp.com?user=noersy&theme=radical&hide_border=true&date_format=M%20j%5B%2C%20Y%5D" alt="github streak" >
-   </a>
-</div>
 
 ## Tools
 
