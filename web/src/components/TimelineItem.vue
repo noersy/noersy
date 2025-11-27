@@ -15,7 +15,9 @@ const props = defineProps({
 <template>
   <div class="timeline-item">
     <div class="date">{{ date }}</div>
-    <div class="spacer"></div>
+    <div class="spacer">
+      <div class="timeline-dot"></div>
+    </div>
     <div class="content">
       <h3 class="title">{{ title }}</h3>
       <p v-if="subtitle" class="subtitle">{{ subtitle }}</p>
@@ -39,12 +41,28 @@ const props = defineProps({
   .date {
     @include body-text;
     min-width: 120px;
-    text-align: left;
+    text-align: right;
     color: $text-secondary;
   }
 
   .spacer {
     width: 24px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 6px;
+
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: $rn-blue;
+      border: 2px solid $primary-bg;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 2px $rn-blue;
+    }
   }
 
   .content {

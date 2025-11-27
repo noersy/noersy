@@ -87,6 +87,11 @@ html {
   scroll-behavior: smooth;
 }
 
+// Enhanced smooth scrolling for all scrollable elements
+* {
+  scroll-behavior: smooth;
+}
+
 // Responsive breakpoints
 $breakpoint-mobile: 930px;
 $breakpoint-timeline: 1269px;

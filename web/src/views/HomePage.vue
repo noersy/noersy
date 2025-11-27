@@ -148,15 +148,16 @@ onUnmounted(() => {
 
   .timeline-section {
     position: relative;
-    padding-left: 240px;
 
     .timeline-line {
       position: absolute;
-      left: 140px;
-      top: 0;
-      bottom: 0;
+      left: 132px; // 120px (date width) + 12px (center of 24px spacer)
+      top: 26px; // Start from first dot (20px padding + 6px)
+      bottom: calc(100% - 26px); // Calculate from bottom
+      height: calc(100% - 52px); // Total height minus top and bottom padding
       width: 2px;
       background-color: $text-secondary;
+      z-index: 0;
     }
 
     .timeline-content {
