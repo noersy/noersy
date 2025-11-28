@@ -73,10 +73,26 @@ const handleScroll = () => {
   }
 }
 
+const handleScrollEnd = () => {
+  const container = scrollContainer.value
+  if (container) {
+    const scrollTop = container.scrollTop
+    const sectionHeight = window.innerHeight
+    const newSection = Math.round(scrollTop / sectionHeight)
+
+    if (newSection !== currentSection.value && newSection >= 0 && newSection < sections.length) {
+      currentSection.value = newSection
+    }
+
+    isScrolling.value = false
+  }
+}
+
 onMounted(() => {
   const container = scrollContainer.value
   if (container) {
     container.addEventListener('scroll', handleScroll, { passive: true })
+    container.addEventListener('scrollend', handleScrollEnd, { passive: true })
   }
 })
 
@@ -84,6 +100,7 @@ onUnmounted(() => {
   const container = scrollContainer.value
   if (container) {
     container.removeEventListener('scroll', handleScroll)
+    container.removeEventListener('scrollend', handleScrollEnd)
   }
   if (scrollTimeout.value) {
     clearTimeout(scrollTimeout.value)
@@ -128,6 +145,7 @@ onUnmounted(() => {
     overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
 
     /* Hide scrollbar for Chrome, Safari and Opera */
     &::-webkit-scrollbar {
@@ -145,6 +163,8 @@ onUnmounted(() => {
       display: flex;
       align-items: center;
       justify-content: center;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
     }
   }
 }

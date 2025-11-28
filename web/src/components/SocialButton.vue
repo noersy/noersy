@@ -43,14 +43,15 @@ const openLink = () => {
     transform: translateY(-2px);
 
     .social-icon {
-      filter: brightness(0.8);
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
     }
   }
 
   .social-icon {
     width: 36px;
     height: 36px;
-    color: $text-primary;
+    filter: brightness(0) invert(1);
     transition: all 300ms ease;
   }
 }

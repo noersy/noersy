@@ -179,7 +179,15 @@ onUnmounted(() => {
 @media (max-width: 1269px) {
   .home-page {
     .content-wrapper {
-      justify-content: flex-start;
+      justify-content: center;
+    }
+
+    .left-section {
+      align-items: center;
+
+      .social-buttons {
+        justify-content: center;
+      }
     }
   }
 }

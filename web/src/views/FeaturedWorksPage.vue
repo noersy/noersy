@@ -7,14 +7,14 @@ const projects = [
     caption: 'mobile-based application for Al-Quran Learning Place (TPQ)',
     gradientFrom: '#4caf50',
     gradientTo: '#69f0ae',
-    opacity: 0.2
+    opacity: 1
   },
   {
     title: 'Mi-Lab',
     caption: 'Mobile app integrated with https://infotech.umm.ac.id/',
     gradientFrom: '#ff5722',
     gradientTo: '#ff9800',
-    opacity: 0.2
+    opacity: 1
   }
 ]
 </script>
