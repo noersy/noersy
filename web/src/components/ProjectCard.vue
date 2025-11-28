@@ -77,12 +77,14 @@ const isHovered = ref(false)
   .card-title {
     @include title-style;
     margin: 0;
+    color: white;
   }
 
   .card-caption {
     @include caption-style;
     margin-bottom: 24px;
     max-width: 80%;
+    color: white;
   }
 
   .more-button {

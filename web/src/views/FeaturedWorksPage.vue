@@ -61,6 +61,7 @@ const projects = [
     .page-title {
       @include title-style;
       margin: 0 0 32px 0;
+      color: $white;
     }
 
     .page-caption {
