@@ -10,8 +10,6 @@ import ContactPage from '../views/ContactPage.vue'
 const currentSection = ref(0)
 const sections = ['Home', 'Featured_Works', 'Playground', 'About', 'Contact']
 const scrollContainer = ref(null)
-const isScrolling = ref(false)
-const scrollTimeout = ref(null)
 
 const components = [
   HomePage,
@@ -21,89 +19,59 @@ const components = [
   ContactPage
 ]
 
+// Simple navigation using native smooth scroll
 const navigateToSection = (index) => {
   if (index < 0 || index >= sections.length) return
 
-  isScrolling.value = true
   currentSection.value = index
-
   const container = scrollContainer.value
+
   if (container) {
     const targetScrollTop = index * window.innerHeight
-
-    // Use smoother scroll with custom easing
     container.scrollTo({
       top: targetScrollTop,
       behavior: 'smooth'
     })
-
-    // Clear existing timeout
-    if (scrollTimeout.value) {
-      clearTimeout(scrollTimeout.value)
-    }
-
-    // Set timeout to match snap animation duration
-    scrollTimeout.value = setTimeout(() => {
-      isScrolling.value = false
-    }, 800)
   }
 }
 
-let scrollDebounce = null
-
+// Track current section based on scroll position
 const handleScroll = () => {
   const container = scrollContainer.value
-  if (container && !isScrolling.value) {
-    // Clear previous debounce
-    if (scrollDebounce) {
-      clearTimeout(scrollDebounce)
-    }
+  if (!container) return
 
-    // Debounce scroll detection
-    scrollDebounce = setTimeout(() => {
-      const scrollTop = container.scrollTop
-      const sectionHeight = window.innerHeight
-      const threshold = sectionHeight * 0.5 // 50% threshold
-      const newSection = Math.floor((scrollTop + threshold) / sectionHeight)
+  const scrollTop = container.scrollTop
+  const sectionHeight = window.innerHeight
+  const newSection = Math.round(scrollTop / sectionHeight)
 
-      if (newSection !== currentSection.value && newSection >= 0 && newSection < sections.length) {
-        currentSection.value = newSection
-      }
-    }, 100)
+  if (newSection !== currentSection.value && newSection >= 0 && newSection < sections.length) {
+    currentSection.value = newSection
   }
 }
 
-const handleScrollEnd = () => {
-  const container = scrollContainer.value
-  if (container) {
-    const scrollTop = container.scrollTop
-    const sectionHeight = window.innerHeight
-    const newSection = Math.round(scrollTop / sectionHeight)
-
-    if (newSection !== currentSection.value && newSection >= 0 && newSection < sections.length) {
-      currentSection.value = newSection
-    }
-
-    isScrolling.value = false
+// Debounced scroll handler
+let scrollDebounce = null
+const handleScrollDebounced = () => {
+  if (scrollDebounce) {
+    clearTimeout(scrollDebounce)
   }
+  scrollDebounce = setTimeout(handleScroll, 100)
 }
 
 onMounted(() => {
   const container = scrollContainer.value
   if (container) {
-    container.addEventListener('scroll', handleScroll, { passive: true })
-    container.addEventListener('scrollend', handleScrollEnd, { passive: true })
+    container.addEventListener('scroll', handleScrollDebounced, { passive: true })
   }
 })
 
 onUnmounted(() => {
   const container = scrollContainer.value
   if (container) {
-    container.removeEventListener('scroll', handleScroll)
-    container.removeEventListener('scrollend', handleScrollEnd)
+    container.removeEventListener('scroll', handleScrollDebounced)
   }
-  if (scrollTimeout.value) {
-    clearTimeout(scrollTimeout.value)
+  if (scrollDebounce) {
+    clearTimeout(scrollDebounce)
   }
 })
 </script>
@@ -145,8 +113,11 @@ onUnmounted(() => {
     overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-    scroll-padding: 0;
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 0;
+
+    // Enable momentum scrolling on iOS
+    -webkit-overflow-scrolling: touch;
 
     /* Hide scrollbar for Chrome, Safari and Opera */
     &::-webkit-scrollbar {
@@ -165,7 +136,7 @@ onUnmounted(() => {
       align-items: center;
       justify-content: center;
       scroll-snap-align: start;
-      scroll-snap-stop: always;
+      scroll-snap-stop: normal;
       transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                   opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       will-change: transform, opacity;
