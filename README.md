@@ -4,7 +4,7 @@
 
 - 🌱 I'm currently learning **Flutter & Dart**
 - 💻 This portfolio is built with **Vue 3 + Vite**
-- 👨‍💻 All of my projects are available at [noersy.github.io](https://noersy.github.io/)
+- 👨‍💻 All of my projects are available at [noersy.my.id](https://noersy.my.id/)
 
 ## Tools
 
